@@ -42,9 +42,10 @@ module.exports = {
   ** Build configuration
   */
     build: {
-    /*
-    ** You can extend webpack config here
-    */
+        vendor: ['axios', 'antd-ui'],
+        /*
+        ** You can extend webpack config here
+        */
         extend(config, ctx) {
             if (ctx.isClient) {
                 config.module.rules.push({

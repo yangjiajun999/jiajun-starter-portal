@@ -1,10 +1,7 @@
 <template>
     <a-layout id="components-layout-demo-side" style="min-height: 100vh">
-        <a-layout-sider
-            v-model="collapsed"
-            collapsible
-        >
-            <div class="logo" />
+        <a-layout-sider v-model="collapsed" collapsible>
+            <div class="logo">后台管理系统</div>
             <a-menu theme="dark" :defaultSelectedKeys="['1']" mode="inline">
                 <a-menu-item key="1">
                     <a-icon type="pie-chart" />
@@ -36,18 +33,25 @@
             </a-menu>
         </a-layout-sider>
         <a-layout>
-            <a-layout-header style="background: #fff; padding: 0" />
+            <a-layout-header style="background: #fff; padding: 0">
+                <a-menu mode="horizontal">
+                    <a-sub-menu>
+                        <span slot="title" class="submenu-title-wrapper"><a-icon type="usergroup-add" />人员管理</span>
+                        <a-menu-item key="setting:1">用户管理</a-menu-item>
+                        <a-menu-item key="setting:2">角色管理</a-menu-item>
+                    </a-sub-menu>
+                    <a-sub-menu>
+                        <span slot="title" class="submenu-title-wrapper"><a-icon type="setting" />系统管理</span>
+                        <a-menu-item key="setting:3">Option 1</a-menu-item>
+                        <a-menu-item key="setting:4">Option 2</a-menu-item>
+                    </a-sub-menu>
+                </a-menu>
+            </a-layout-header>
             <a-layout-content style="margin: 0 16px">
-                <a-breadcrumb style="margin: 16px 0">
-                    <a-breadcrumb-item>User</a-breadcrumb-item>
-                    <a-breadcrumb-item>Bill</a-breadcrumb-item>
-                </a-breadcrumb>
-                <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
-                    <nuxt />
-                </div>
+                <nuxt />
             </a-layout-content>
             <a-layout-footer style="text-align: center">
-                Ant Design ©2018 Created by Ant UED
+                Admin Template ©2019 Created by JiaJun Yang
             </a-layout-footer>
         </a-layout>
     </a-layout>
@@ -62,10 +66,16 @@ export default {
 };
 </script>
 
-<style>
-  #components-layout-demo-side .logo {
-    height: 32px;
-    background: rgba(255,255,255,.2);
-    margin: 16px;
-  }
+<style lang="stylus">
+    .ant-layout-header
+        height auto
+    #components-layout-demo-side .logo
+        height 33px
+        line-height 33px
+        margin 5px
+        text-align center
+        color #fff
+        overflow hidden
+        font-size 15px
+        background rgba(255,255,255,0.2)
 </style>
